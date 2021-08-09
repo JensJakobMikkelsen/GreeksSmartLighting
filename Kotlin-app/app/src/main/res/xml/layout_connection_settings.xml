@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:summary="Connection settings"
+        android:title="Connection settings"
+        >
+
+        <CheckBoxPreference
+            android:key="checkBox1"
+            android:summary="Keep connection open when app is in the background"
+            android:title="Stop connection when in background" />
+
+        <CheckBoxPreference
+            android:key="checkbox2"
+            android:summary="Keep connection open when app is in the background"
+            android:title="Stop connection when in background" />
+
+        <EditTextPreference
+            android:key="Connection timeout"
+            android:inputType="number"
+            android:summary="Enter in minutes default connection timeout (if set)"
+            android:title="Timeout in seconds" />
+
+        <CheckBoxPreference
+            android:key="checkBox3"
+            android:summary="Autoconnect to this when detected \n (only 1 connection can be set to auto at a time)"
+            android:title="Autoconnect on/off" />
+
+        <com.example.blue.ExtendedViewClasses.TextviewPreference
+            android:key="text_preference"
+            android:layout="@layout/connection_info" />
+    </PreferenceCategory>
+
+
+
+</PreferenceScreen>

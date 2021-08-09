@@ -1,14 +1,13 @@
 package com.webianks.bluechat
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.app.AlertDialog
 import android.graphics.ColorFilter
 import android.graphics.LightingColorFilter
-import android.graphics.drawable.Drawable
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
-import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -21,24 +20,17 @@ import com.example.blue.R
 import com.github.dhaval2404.colorpicker.ColorPickerDialog
 import com.github.dhaval2404.colorpicker.model.ColorShape
 import com.google.android.material.card.MaterialCardView
-import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 import com.google.android.material.textview.MaterialTextView
 import pl.droidsonroids.gif.GifDrawable
 import pl.droidsonroids.gif.GifImageView
 
 
-/**
- * Created by ramankit on 24/7/17.
- */
-
 class MenuSelectionFragment : Fragment() {
 
-    val visibility = 0
-    val firstIndex = 0
     var currentView: View? = null
     var handlerAnimation = Handler()
     var statusAnimation = false
-
+    lateinit var connectionPreferencesFragment: ConnectionPreferencesFragment
 
     companion object {
         fun newInstance(): MenuSelectionFragment{
@@ -113,7 +105,22 @@ class MenuSelectionFragment : Fragment() {
         var colorNumber = 0
         var currentColor = 0
 
-        var lightingsSettingsButton: MaterialTextView = mView.findViewById(R.id.sizePizzaM)
+        var connectionSettingsButton: MaterialTextView = mView.findViewById(R.id.text_connectionoptions)
+        connectionSettingsButton.setOnClickListener()
+        {
+
+            val fragmentTransaction = requireActivity().supportFragmentManager.beginTransaction()
+            connectionPreferencesFragment = ConnectionPreferencesFragment.newInstance()
+
+            //TODO: Why does mainscreen work, but not mainscreen_preferences???
+            fragmentTransaction.replace(R.id.mainScreen, connectionPreferencesFragment, "connectionPreferencesFragment")
+            //fragmentTransaction.addToBackStack("connectionPreferencesFragment")
+            fragmentTransaction.commit()
+
+            //childFragmentManager.beginTransaction().replace(R.id.fragment_frame, ConnectionPreferencesFragment.newInstance()).addToBackStack(null).commit()
+        }
+
+        val lightingsSettingsButton: MaterialTextView = mView.findViewById(R.id.text_lightingoptions)
         lightingsSettingsButton.setOnClickListener()
         {
             val alertDialog: AlertDialog? = activity?.let {
@@ -206,8 +213,6 @@ class MenuSelectionFragment : Fragment() {
                 // Create the AlertDialog
                 builder.setView(dialogView)
                 val dialog = builder.create()
-
-
                 builder.show()
 
             }
@@ -215,7 +220,7 @@ class MenuSelectionFragment : Fragment() {
         }
 /*
 */
-        val pulseButton: MaterialTextView = mView.findViewById(R.id.sizePizzaL)
+        val pulseButton: MaterialTextView = mView.findViewById(R.id.text_pulse)
         pulseButton.setOnClickListener {
             items[carousel.currentIndex].pulsing = !items[carousel.currentIndex].pulsing
             carousel.refresh()

@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <!-- android:layout_gravity="center" -->
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/edit_current_lighting"
+        android:backgroundTint="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="225dp"
+        android:layout_gravity="center_horizontal"
+        >
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/current_lighting_1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:src="@drawable/pulsing_blue"
+            android:scaleX="2"
+            android:scaleY="2"
+            >
+        </de.hdodenhof.circleimageview.CircleImageView>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/current_lighting_2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:src="@drawable/pulsing_blue"
+            android:scaleX="2"
+            android:scaleY="2"
+            >
+        </de.hdodenhof.circleimageview.CircleImageView>
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+   <TextView
+        android:id="@+id/text_pulsing_speed"
+        android:layout_width="125dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edit_current_lighting"
+       android:layout_marginTop="16dp"
+        android:layout_marginLeft="16dp"
+        android:hint="Pulsing speed:" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/text_pulsing_speed">
+
+        <LinearLayout
+            android:id="@+id/ll1"
+            android:layout_marginLeft="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="10">
+
+            <TextView
+                android:id="@+id/text_slow_pulsing_speed"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.2"
+                android:hint="Slow:" />
+
+            <RadioButton
+                android:id="@+id/radio_pulsing_speed_slow"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.2" />
+
+            <TextView
+                android:id="@+id/text_medium_pulsing_speed"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.40"
+                android:layout_marginRight="10dp"
+                android:hint="Medium:" />
+
+            <RadioButton
+                android:id="@+id/radio_pulsing_speed_medium"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.2" />
+
+            <TextView
+                android:id="@+id/text_fast_pulsing_speed"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+
+                android:hint="Fast:" />
+
+            <RadioButton
+                android:id="@+id/radio_pulsing_speed_fast"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.2" />
+
+            <Button
+                android:id="@+id/button_pulsing_speed_settings"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.2"
+                android:drawableStart="@drawable/settings_icon" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/text_brightness"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ll1"
+
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:hint="Brightness:" />
+
+        <SeekBar
+            android:id="@id/brightness_seekbar"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_below="@id/text_brightness"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="0dp"
+            android:text="@string/done" />
+
+        <TextView
+            android:id="@+id/text_color"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/brightness_seekbar"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="60dp"
+            android:hint="Color:" />
+
+        <Button
+            android:id="@+id/button_color_spectrum"
+            android:layout_width="125dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/brightness_seekbar"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="38dp"
+            android:layout_toEndOf="@id/material_card_color"
+            android:background="@color/grey"
+            android:hint="Show color spectrum:" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/material_card_color"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_below="@id/brightness_seekbar"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="30dp"
+            android:layout_toEndOf="@id/text_color"
+            android:backgroundTint="#FF6CBEFF" />
+
+        <TextView
+            android:id="@+id/text_material_card_color"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/material_card_color"
+            android:layout_alignStart="@id/material_card_color"
+            android:hint="Color:"
+            android:text="#FF6CBEFF" />
+
+    </RelativeLayout>
+</RelativeLayout>
