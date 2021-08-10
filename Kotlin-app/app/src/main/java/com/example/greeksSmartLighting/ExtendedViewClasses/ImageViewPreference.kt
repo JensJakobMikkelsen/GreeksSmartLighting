@@ -12,9 +12,10 @@ import androidx.preference.PreferenceViewHolder
 
 // https://stackoverflow.com/questions/59507248/how-to-add-image-view-that-can-be-edited-inside-a-preferencescreen-using-prefere
 
-internal class ImageViewPreference(context: Context?, attrs: AttributeSet?) :
+class ImageViewPreference(context: Context?, attrs: AttributeSet?) :
     Preference(context, attrs) {
-    private var imageView: ImageView? = null
+
+    var imageView: ImageView? = null
     var imageClickListener: View.OnClickListener? = null
 
     //onBindViewHolder() will be called after we call setImageClickListener() from SettingsFragment

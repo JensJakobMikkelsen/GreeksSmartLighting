@@ -114,7 +114,7 @@ class MenuSelectionFragment : Fragment() {
 
             //TODO: Why does mainscreen work, but not mainscreen_preferences???
             fragmentTransaction.replace(R.id.mainScreen, connectionPreferencesFragment, "connectionPreferencesFragment")
-            //fragmentTransaction.addToBackStack("connectionPreferencesFragment")
+            fragmentTransaction.addToBackStack("connectionPreferencesFragment")
             fragmentTransaction.commit()
 
             //childFragmentManager.beginTransaction().replace(R.id.fragment_frame, ConnectionPreferencesFragment.newInstance()).addToBackStack(null).commit()

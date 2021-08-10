@@ -11,7 +11,7 @@ import com.example.blue.R
 
 // https://stackoverflow.com/questions/59507248/how-to-add-image-view-that-can-be-edited-inside-a-preferencescreen-using-prefere
 
-internal class TextviewPreference(context: Context?, attrs: AttributeSet?) :
+class ConnectionInfoPreference(context: Context?, attrs: AttributeSet?) :
     Preference(context, attrs) {
     private var textView_signal_strength: TextView? = null
     var textViewClickListener: View.OnClickListener? = null

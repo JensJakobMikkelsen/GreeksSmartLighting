@@ -28,9 +28,14 @@
             android:summary="Autoconnect to this when detected \n (only 1 connection can be set to auto at a time)"
             android:title="Autoconnect on/off" />
 
-        <com.example.blue.ExtendedViewClasses.TextviewPreference
-            android:key="text_preference"
+        <com.example.blue.ExtendedViewClasses.ConnectionInfoPreference
+            android:key="connection_info_preference"
             android:layout="@layout/connection_info" />
+
+        <com.example.blue.ExtendedViewClasses.ConfirmationsPreference
+            android:key="confirmations_preference"
+            android:layout="@layout/connection_confirmations" />
+
     </PreferenceCategory>
 
 

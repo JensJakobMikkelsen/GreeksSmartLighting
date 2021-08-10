@@ -1,17 +1,16 @@
 package com.webianks.bluechat
 
-import android.os.Build
 import android.os.Bundle
-import android.support.annotation.RequiresApi
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
+import android.widget.Toast
+import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
+import com.example.blue.ExtendedViewClasses.ConfirmationsPreference
 import com.example.blue.R
-import java.util.logging.Handler
+
 
 class ConnectionPreferencesFragment : PreferenceFragmentCompat() {
+
+    var confirmationsPreference: ConfirmationsPreference? = null
 
     companion object {
         fun newInstance(): ConnectionPreferencesFragment{
@@ -28,6 +27,19 @@ class ConnectionPreferencesFragment : PreferenceFragmentCompat() {
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.layout_connection_settings, rootKey);
+
+        confirmationsPreference = findPreference("confirmations_preference")
+
+        //TODO: DOESNT WORK. REPLACE WITH https://stackoverflow.com/questions/5298370/how-to-add-a-button-to-a-preferencescreen
+        // ?
+        confirmationsPreference?.button_confirm?.setOnClickListener()
+        {
+            /*
+            requireActivity().supportFragmentManager.popBackStack()
+            //getActivity()?.onBackPressed();
+            Toast.makeText(activity, "Its toast!", Toast.LENGTH_LONG).show()
+             */
+        }
     }
 
 }
